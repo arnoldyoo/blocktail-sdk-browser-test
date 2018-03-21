@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="./lib/asmcrypto.js"></script>
+    <script src="./lib/blocktrail-sdk-with-backup-generator.js"></script>
+    <script src="./lib/blocktrail-sdk-full.js"></script>
+    
+  </head>
+  <body>
+
+    <script>
+      console.log("123456789 Satoshi to BTC: ", window.blocktrailSDK.toBTC(123456789));
+
+      var client = window.blocktrailSDK.BlocktrailSDK({apiKey: "07bb2fc43bcad8fddb4d19e91214a78eaad5f534", apiSecret: "7e144ad519f25830847e4ead4d06c6012817dcf0", network: "BTC", testnet: false});
+      console.log(client);
+      client.createNewWallet("arnoldyoo2", "790102",function(err, wallet, backupInfo) {
+        if(err) {
+          console.log('err : ', err);
+        } else {
+          console.log(wallet);
+          console.log(backupInfo);
+        }
+      });
+    </script>
+  
+  </body>
+</html>
